@@ -9,7 +9,8 @@ jobs:
     # https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md for 12.6.2 (my mac)
     runs-on: macos-12
     steps:
-      - name: ls fetch-emacs-from-ftp
+      # Per https://github.com/gdegenna/github-actions-quickstart/blob/gdegenna-add-GitHub-Action-Quickstart/.github/workflows/GitHub-actions-demo.yml
+      - name: ls ${{ github.workspace }}fetch-emacs-from-ftp
         # if this fails, quote the URL
         run: |
           ls fetch-emacs-from-ftp
