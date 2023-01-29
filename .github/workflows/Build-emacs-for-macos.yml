@@ -13,7 +13,7 @@ jobs:
       - name: ls fetch-emacs-from-ftp
         # if this fails, quote the URL
         run: |
-          ls ${{ github.workspace }}/fetch-emacs-from-ftp
+          ls ${{ github.workspace }}
       - name: Fetch Emacs from FTP
         # if this fails, quote the URL
         run: |
