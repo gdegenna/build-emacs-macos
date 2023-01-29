@@ -10,7 +10,7 @@ jobs:
     runs-on: macos-12
     steps:
       # Per https://github.com/gdegenna/github-actions-quickstart/blob/gdegenna-add-GitHub-Action-Quickstart/.github/workflows/GitHub-actions-demo.yml
-      - name: ls ${{ github.workspace }}fetch-emacs-from-ftp
+      - name: ls ${{ github.workspace }}
         # if this fails, quote the URL
         run: |
           ls fetch-emacs-from-ftp
