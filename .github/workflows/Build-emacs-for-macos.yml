@@ -9,9 +9,10 @@ jobs:
     # https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md for 12.6.2 (my mac)
     runs-on: macos-12
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
       # Per https://github.com/gdegenna/github-actions-quickstart/blob/gdegenna-add-GitHub-Action-Quickstart/.github/workflows/GitHub-actions-demo.yml
       - name: ls fetch-emacs-from-ftp
-        # if this fails, quote the URL
         run: |
           ls -lahtr ${{ github.workspace }}/
       - name: Fetch Emacs from FTP
