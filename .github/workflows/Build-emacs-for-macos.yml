@@ -1,0 +1,26 @@
+name: Build Emacs for macOS in GitHun Actions
+run-name: ${{ github.actor }} is building Emacs for macOS
+on: [push]
+jobs:
+  Build-Emacs:
+  # per 
+  # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software
+  # and
+  # https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md for 12.6.2 (my mac)
+  runs-on: macos-12
+  steps:
+    - name: Fetch Emacs from FTP
+      # if this fails, quote the URL
+      run: |
+        fetch-emacs-from-ftp ftp://ftp.gnu.org/pub/gnu/emacs
+    - name: Build Emacs
+      # per
+      # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+      # Mac hardware has 3 cores
+      # at the time of writing should be emacs-28.2.tar.bz2 
+      run: |
+        build-emacs-from-tar -j 3 emacs-28.2.tar.bz2 nightly
+    - name: Combine and package
+      run: |
+        combine-and-package Emacs-28.2-10.12.tar.bz2
+    - run: echo "🍏 This job's status is ${{ job.status }}."
