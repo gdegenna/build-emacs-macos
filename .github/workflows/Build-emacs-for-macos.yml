@@ -25,7 +25,7 @@ jobs:
         # Mac hardware has 3 cores
         # at the time of writing should be emacs-28.2.tar.bz2 
         run: |
-          ./build-emacs-from-tar -v -j 3 emacs-28.2.tar.bz2 nightly
+          ./build-emacs-from-tar -v -j 3 emacs-28.2.tar.bz2 nightly --no-deps
       - name: Combine and package
         run: |
           ./combine-and-package Emacs-28.2-10.12.tar.bz2
